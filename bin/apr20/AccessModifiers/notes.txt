@@ -1,0 +1,26 @@
+Access modifiers in java are:
+
+1. Public
+2. Private
+3. Protected
+4. Default
+
+1. Public:
+
+- Public is the most accessible modifier. It can be accessed from anywhere. It can be accessed from any class, any package, any subclass, any subpackage.
+- Public is used to declare a class, method, variable, interface, etc.
+
+2. Private:
+
+- Private is the least accessible modifier. It can be accessed only within the class in which it is declared.
+- Private is used to declare a class, method, variable, interface, etc.
+
+3. Protected:
+
+- Protected is accessible within the package and outside the package but through inheritance only.
+- Protected is used to declare a class, method, variable, interface, etc.
+
+4. Default:
+
+- Default is accessible within the package only.
+- Default is used to declare a class, method, variable, interface, etc.
