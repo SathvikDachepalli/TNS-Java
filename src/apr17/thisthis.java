@@ -19,7 +19,7 @@ public class thisthis {
 
         // A obj = new A(50);
         
-        confuse obj1 = new confuse(20);
+        // confuse obj1 = new confuse(20);
     }
 }
 
@@ -47,7 +47,7 @@ class A{
 class confuse{
     int a=90;
     confuse(int a){
-        a=a;
+        // a=a;
         System.out.println("From constructor "+a);
     }
     void show(){
