@@ -40,8 +40,7 @@ public class AbstractionClass {
         dog.eat();
         dog.sound();
         dog.stand();
-        dog.sit();
+        // dog.sit();
 
-        Animal l= new Lion();
     }
 }

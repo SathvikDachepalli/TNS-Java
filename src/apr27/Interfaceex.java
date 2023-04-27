@@ -18,6 +18,7 @@ class Developer implements Client{
         System.out.println("Enter your salary: ");
         salary = sc.nextDouble();
 
+        sc.close();
     }
     public void output(){
         System.out.println("Hello your name is "+name);
