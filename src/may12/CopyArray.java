@@ -9,11 +9,13 @@ public class CopyArray {
         size=sc.nextInt();
         int a[]=new int[size],b[]=new int[size];
         System.out.println("Enter element variables");
-        for(i=0;i<size;i++){
+        for(i=0;i<size;i++)
+        {
             a[i]=sc.nextInt();
             b[i]=a[i];
         }
         System.out.println("Different array");
-        
+        sc.close();
+        sc.close();
     }
 }

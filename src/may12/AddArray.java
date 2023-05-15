@@ -16,6 +16,6 @@ public class AddArray {
         }
         System.out.print("Summation of all values in the array are: ");
         System.out.print(sum);
-
+        sc.close();
     }
 }

@@ -28,5 +28,6 @@ public class ArrayEx {
         numbers[3]=40;
         numbers[5]=50;
         System.out.println(numbers[4]);
+        System.out.println(cars);
     }
 }
