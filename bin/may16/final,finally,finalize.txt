@@ -1,0 +1,13 @@
+Final is a access modifier
+Finally is a block in exception handling
+Finalize is the method of object class.
+
+Final: It is a access modifier applicable for classes, methods and variables.
+Final classes cannot be inherited, final methods cannot be overridden and final variables cannot be modified. Final variables are also known as constants.
+
+Finally: It is a block in exception handling which will be executed always irrespective of whether exception is raised or not and whether exception is handled or not.
+
+Finally block is executed after try and catch only.  No matter you handle it or not. I will be executed.
+
+Finalize: Used to perform clean up processing just before object is garbage collected. It is a method of object class. It is called by garbage collector just before destroying object to perform clean up processing.
+Finalize method is called by garbage collector before destroying object. It is used to perform clean up processing just before destroying object.

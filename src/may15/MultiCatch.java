@@ -7,6 +7,13 @@ public class MultiCatch {
             int a[]=new int [5];
             System.out.println(a[10]);
         }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        try{
+            int data=10/0;
+            System.out.println(data);
+        }
         catch(ArithmeticException e){
             System.out.println("Arithematic Exception occured. ");
         }
@@ -19,6 +26,7 @@ public class MultiCatch {
         catch(Exception e){
             System.out.println(e);
         }
+        
         System.out.println("Rest of the code");
     }
 }

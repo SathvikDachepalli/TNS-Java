@@ -40,7 +40,33 @@ Exception Hierachy:
 
 ![1684126385015](image/ExceptionHandling/1684126385015.png)
 
-
 Multiple try and throw blocks, Heirarchy:
 
 ![1684126967141](image/ExceptionHandling/1684126967141.png)
+
+
+Exception Handling can be of:
+
+1. Basic Try_Catch
+2. Multi-Catch
+3. Finally
+
+Finally block will always be executed irrespective of exception.
+
+Throw: Used to throw an exception explicitly.
+   - Throw keyword is used to throw an exception.
+   - throw obj(new Type);
+   - It is used to throw only one exception at a time.
+
+Throws : Used to declare an exception.
+   - Throws keyword is used to declare an exception.
+   - It is used with the method signature.
+   - return_type method_name() throws exception_class_name{
+       //code
+   }
+   - It is used to postpone the handling of a checked exception.
+   - It is used to declare multiple exceptions.
+   - It is used to declare only checked exceptions.
+   - If errors which are beyond the control of the program occurs then we can use throws keyword.
+   - If we want to throw multiple exceptions then we can use throws keyword.
+

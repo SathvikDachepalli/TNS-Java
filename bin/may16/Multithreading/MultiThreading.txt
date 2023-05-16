@@ -1,0 +1,86 @@
+MultiThreading:
+Thread is part of a process.
+Context switching is quick in threads than processes.
+Threads share the same address space.
+Threads are light weight.
+Threads are independent.
+Threading is used in applications where we need to perform multiple tasks at a time. i.e, games and animations.
+
+MultiProcessing:
+Process is an instance of a program.
+Context switching is slow in processes than threads.
+Processes do not share the same address space.
+Processes are heavy weight.
+Processes are dependent.
+Multiprocessing is used in applications where we need to perform multiple tasks at a time.
+
+Advantages of MultiThreading:
+
+1) Threads share the same address space and threads are independent. So, it is easy to share the data between threads.
+2) Multi threading doesnt block user to perform other tasks. i.e, we can listen to music while playing games.
+3) Can perform multiple tasks at a time to increase the speed of execution.
+
+MultiTasking in Java:
+Multitasking is a process of executing multiple tasks simultaneously. We use multitasking to utilize the CPU. Multitasking can be achieved in two ways:
+
+1) Process based Multitasking (Multiprocessing)
+2) Thread based Multitasking (Multithreading)
+
+Process based Multitasking (Multiprocessing):
+Each process has its own address in memory i.e, each process allocates separate memory area. Process is heavyweight. Cost of communication between the process is high. Switching from one process to another requires some time for saving and loading registers, memory maps, updating lists etc.
+
+Thread based Multitasking (Multithreading):
+Threads share the same address space. Thread is lightweight. Cost of communication between the thread is low. Switching from one thread to another requires less time for saving and loading registers, memory maps, updating lists etc.
+
+Suppose in a process, there are 3 threads t1, t2 and t3. If you are calling t1.join() and t2.join() in t3, then t3 will wait until t1 and t2 completes their execution. If you are calling t1.join() and t2.join() in main thread, then main thread will wait until t1 and t2 completes their execution.
+And if t1 creates an Exception, then t2 and t3 are not affected. But if main thread creates an Exception, then t1, t2 and t3 are affected.
+
+A thread can be created in two ways:
+
+1) By extending Thread class
+2) By implementing Runnable interface
+
+![1684213481566](image/MultiThreading/1684213481566.png)
+
+Thread Methods:
+
+1. Start(): To start a thread.
+2. run(): To perform action for a thread.
+3. sleep(): Causes the currently executing thread to sleep (temporarily cease execution) for the specified number of milliseconds.
+4. join(): Waits for this thread to die.
+5. yield(): Causes the currently executing thread object to temporarily pause and allow other threads to execute.
+6. setPriority(): Changes the priority of this thread.
+7. getName(): Returns the name of the thread.
+8. setName(): Changes the name of the thread.
+9. getPriority(): Returns the priority of the thread.
+10. isAlive(): Tests if this thread is alive.
+11. currentThread(): Returns a reference to the currently executing thread object.
+12. stop():
+13. suspend():
+14. resume():
+15. destroy():
+
+Life Cycle of a Thread:
+
+
+![Lifecycle and States of a Thread in Java - GeeksforGeeks](https://th.bing.com/th/id/OIP.hdPDHPF2RoHSFIBdhg-9qwAAAA?pid=ImgDet&rs=1)
+
+1. New - When a new thread is created, it is in new state.
+2. Active - When start() method is called on a thread, it is in active state.
+   Runnable - Which is ready to run but not running. Like runners on the track waiting for signal to run.
+   Running - When a thread is in running state, it is currently executing its task. i.e, when run() method is called on a thread.
+
+   Every thread have a certain slice of time. i.e, time quantum. When a thread completes its time quantum, it goes to runnable state. And when a thread is waiting for its time quantum, it is in runnable state. For suppose, if a thread time is 2 mins, then it will be in running state for 2 mins. After 2 mins, it will be in runnable state. And if there are no threads in runnable state, then the thread will be in running state until it completes its task.
+
+   This like round robbin schedule time. i.e, if there are 3 threads t1, t2 and t3. And if t1 time quantum is 2 mins, t2 time quantum is 3 mins and t3 time quantum is 4 mins. Then t1 will be in running state for 2 mins, t2 will be in running state for 3 mins and t3 will be in running state for 4 mins. After that t1 will be in runnable state, t2 will be in runnable state and t3 will be in runnable state. And if there are no threads in runnable state, then t1 will be in running state for 2 mins, t2 will be in running state for 3 mins and t3 will be in running state for 4 mins. And this process will continue until all the threads completes their task.
+3. Blocked/ Waiting - When a thread is waiting for some other thread to perform a task, it is in blocked state. i.e, when join() method is called on a thread. When wait() method is called on a thread. When sleep() method is called on a thread. When I/O operation is performed on a thread.
+
+   Lets assume a scenario, where thread A is waiting for thread B to complete its printing task. Thread A should wait till Thread B completes its task. In this case, thread A will be in blocked state.
+
+   When we want to perform threads to join, Main thread is waiting for child thread to complete its task. In this case, main thread will be in blocked state.
+4. Timed Waiting - When a thread is waiting for some other thread to perform a task for the specified waiting time, it is in timed waiting state. i.e, when sleep() method is called on a thread with some waiting time. When wait() method is called on a thread with some waiting time. When join() method is called on a thread with some waiting time.
+
+   If there are 5 threads and only 4 are working and 1 is waiting for some other thread to complete its task. In this case, the waiting thread will be in timed waiting state. That 1 thread will die due to starvation. If you want to make the thread not to die, we make it sleep. So that it will be in timed waiting state.
+5. Terminated - A thread is in terminated or dead state when its run() method completes.
+
+   When thread completed its job, then the thread would die or exists normally. If there is some unusual circumstances like power failure, JVM crash, etc. Then the thread will die abnormally. In this case, we can use uncaughtException() method to handle the exception.
