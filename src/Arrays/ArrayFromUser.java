@@ -12,11 +12,11 @@ public class ArrayFromUser{
         for (i=0;i<size;i++){
             a[i]=sc.nextInt();
         }
-        sc.close();
+        
         System.out.println("\nPrinted Array element");
         for(i=0;i<size;i++){
             System.out.println(a[i]);
         }
-        
+        sc.close();
     }
 }

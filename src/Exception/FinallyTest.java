@@ -23,6 +23,7 @@ public class FinallyTest {
             System.out.println("Looks like you divided 0 by 0..");
         }
         finally{
+            sc.close();
             System.out.println("Good bye :D");
         }
     }
