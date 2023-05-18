@@ -1,0 +1,11 @@
+# Remove folders like .settings and .bin
+
+bin/
+
+.settings/
+
+.project
+
+.classpath
+
+
