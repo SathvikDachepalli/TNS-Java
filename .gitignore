@@ -1,8 +1,8 @@
 # Remove folders like .settings and .bin
 
-!bin/
+!bin/*
 
-!.settings/
+!.settings/*
 
 !.project
 
