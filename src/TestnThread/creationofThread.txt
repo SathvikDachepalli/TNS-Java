@@ -1,0 +1,69 @@
+How to create a thread in java
+1. By extending Thread class
+2. By implementing Runnable interface
+
+Thread class -extends object class and Runnable interface
+
+there are 4 constructors in Thread class
+1. Thread()
+2. Thread(String name)
+3. Thread(Runnable r)
+4. Thread(Runnable r,String name)
+
+1. Thread(): creates a new thread object
+2. Thread(String name): creates a new thread object with the given name
+3. Thread(Runnable r): creates a new thread object that executes the given runnable object
+4. Thread(Runnable r,String name): creates a new thread object with the given name that executes the given runnable object
+
+What is runnable: Runnable is an interface that defines a single method called run, which is used to execute the code represented by the object of the class that implements the Runnable interface.
+
+Methods:
+1. public void start(): starts the execution of the thread
+2. public void run(): is used to perform action for a thread
+3. public void sleep(long ms): causes the currently executing thread to sleep for the specified number of milliseconds
+4. public void join(): waits for a thread to die
+5. public void join(long ms): waits for a thread to die for the specified milliseconds
+6. public int getPriority(): returns the priority of the thread
+7. public int setPriority(int priority): changes the priority of the thread
+8. public String getName(): returns the name of the thread
+9. public void setName(String name): changes the name of the thread
+10. public Thread currentThread(): returns the reference of currently executing thread
+11. public int getId(): returns the id of the thread
+12. public Thread.State getState(): returns the state of the thread
+
+Starting a thread:
+1. By calling start() method
+ - A new thread gets created.
+ - The thread moves from new state to runnable state.
+ - When the thread gets a chance to execute, its target run() method will run.
+
+2. By calling run() method
+    - No new thread gets created.
+    - The thread moves from new state to runnable state.
+    - When the thread gets a chance to execute, its target run() method will run.
+
+To use a thread from extending Thread class, we need to override run() method of Thread class.
+
+To use a thread from implementing Runnable interface, we need to override run() method of Runnable interface and create a Thread object by passing the Runnable object as an argument to the Thread constructor.
+
+
+Thread.sleep() method:
+- Causes the currently executing thread to sleep 
+- The thread does not lose ownership of any monitors.
+- The thread goes from running state to waiting state.
+- The thread scheduler picks up another thread and gives it a chance to run.
+
+Thread.sleep(int ms) method:
+- Causes the currently executing thread to sleep for the specified number of milliseconds.
+- The thread does not lose ownership of any monitors.
+- The thread goes from running state to waiting state.
+
+Syntax:
+public static void sleep(long ms) throws InterruptedException
+
+public static void sleep(long ms, int n) throws InterruptedException
+
+n- nanoseconds 0-999999
+ms- milliseconds 0-999
+
+IllegalThreadStateException: if the thread is already started, then if we try start it again, we will get IllegalThreadStateException.
