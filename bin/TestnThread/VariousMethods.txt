@@ -93,5 +93,55 @@
     Thread t1g3 = new Thread(g3, "Thread 5", new MyRunnable());
 
     
+6. Java Garbage Collection 
+    - Garbage Collection is a process of reclaiming the runtime unused memory automatically.
+    - In other words, it is a way to destroy the unused objects.
+    - Unreferenced objects are destroyed automatically by the garbage collector.
 
+    Advantages:
     
+    1. By nulling a reference variable.
+    - Employee e = new Employee();
+    - e = null;
+    
+    2. By assigning a reference variable to another.
+    - Employee e1 = new Employee();
+    - Employee e2 = new Employee();
+    - e1 = e2;
+    - It is called reassigning the reference variable.
+    
+    3. By anonymous object.
+    - new Employee();
+
+    Finalize method:
+    - Finalize method is used to perform clean up processing just before the object is garbage collected.
+    - It is called by the garbage collector on an object when garbage collector determines that there are no more references to the object.
+    - It is called only once by the garbage collector for an object.
+    - It is called before the object is garbage collected.
+
+    Syntax:
+    protected void finalize() throws Throwable{}
+
+    gc method:
+    - gc method is used to request JVM to run the garbage collector.
+    - It is found in System class and Runtime class.
+    - It is a static method.
+    - It is used to free the memory.
+
+    Syntax:
+    public static void gc(){}
+
+
+7. Synchronization in Java:
+
+    Uses:
+    1. To prevent thread interference.
+    2. To prevent consistency problem.
+
+    Synchronization is the capability to control the access of multiple threads to any shared resource.
+
+    2 Types of Synchronization:
+    1. Process Synchronization
+    2. Thread Synchronization
+        -  Mutual Exclusion  - Synchronized Method, Synchronized Block, Static Synchronization
+        -  Cooperation  //  Inter Thread Communication - wait(), notify(), notifyAll()
