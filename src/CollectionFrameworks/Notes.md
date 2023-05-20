@@ -57,24 +57,33 @@ Things provided in Collection Framework:
 List Interface
 
 List<data-type> list = new ArrayList<data-type>();
+    
 List<data-type> list = new LinkedList<data-type>();
+
 List<data-type> list = new Vector<data-type>();
+
 List<data-type> list = new Stack<data-type>();
 
 Set Interface
 
 Set<data-type> set = new HashSet<data-type>();
+    
 Set<data-type> set = new LinkedHashSet<data-type>();
+    
 Set<data-type> set = new TreeSet<data-type>();
 
 Map Interface
 
 Map<data-type, data-type> map = new HashMap<data-type, data-type>();
+    
 Map<data-type, data-type> map = new LinkedHashMap<data-type, data-type>();
+    
 Map<data-type, data-type> map = new TreeMap<data-type, data-type>();
+    
 
 Queue Interface
 
 Queue<data-type> queue = new PriorityQueue<data-type>();
+    
 Queue<data-type> queue = new ArrayDeque<data-type>();
 
