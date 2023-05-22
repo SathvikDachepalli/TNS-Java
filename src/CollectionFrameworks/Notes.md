@@ -55,6 +55,7 @@ Things provided in Collection Framework:
 
 List Interface
 
+<<<<<<< HEAD
 List`<data-type>` list = new ArrayList`<data-type>`();
 
 
@@ -71,14 +72,41 @@ Set `<data-type>` set = new LinkedHashSet `<data-type>`();
 
 
 Set `<data-type>` set = new TreeSet `<data-type>`();
+=======
+List<data-type> list = new ArrayList<data-type>();
+    
+List<data-type> list = new LinkedList<data-type>();
+
+List<data-type> list = new Vector<data-type>();
+
+List<data-type> list = new Stack<data-type>();
+
+Set Interface
+
+Set<data-type> set = new HashSet<data-type>();
+    
+Set<data-type> set = new LinkedHashSet<data-type>();
+    
+Set<data-type> set = new TreeSet<data-type>();
+>>>>>>> 08f4e7d57299fe24b89f22ea290bf49dc7ef38ac
 
 Map Interface
 
 Map<data-type, data-type> map = new HashMap<data-type, data-type>();
+    
 Map<data-type, data-type> map = new LinkedHashMap<data-type, data-type>();
+    
 Map<data-type, data-type> map = new TreeMap<data-type, data-type>();
+    
 
 Queue Interface
 
+<<<<<<< HEAD
 Queue`<data-type>` queue = new PriorityQueue`<data-type>`();
 Queue`<data-type>` queue = new ArrayDeque`<data-type>`();
+=======
+Queue<data-type> queue = new PriorityQueue<data-type>();
+    
+Queue<data-type> queue = new ArrayDeque<data-type>();
+
+>>>>>>> 08f4e7d57299fe24b89f22ea290bf49dc7ef38ac
