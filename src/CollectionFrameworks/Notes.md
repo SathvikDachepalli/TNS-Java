@@ -30,42 +30,47 @@ Things provided in Collection Framework:
 
 1. Iterator interface
 
-    -  It is used to iterate the elements in the collection.
-    -  It iterates the elements in the forward direction only.
-    -  It is applicable for all collection classes.
-    -  It is a universal cursor.
+   - It is used to iterate the elements in the collection.
+   - It iterates the elements in the forward direction only.
+   - It is applicable for all collection classes.
+   - It is a universal cursor.
 
-    Example:
-        1. Traditional way of iterating the elements in the collection.
-        for(int i=0; i<list.size(); i++) {
-            System.out.println(list.get(i));
-        }
-        2. Using Iterator interface
-        Iterator itr = list.iterator();
-        while(itr.hasNext()) {
-            System.out.println(itr.next());
-        }
+   Example:
+   1. Traditional way of iterating the elements in the collection.
+   for(int i=0; i<list.size(); i++) {
+   System.out.println(list.get(i));
+   }
+   2. Using Iterator interface
+   Iterator itr = list.iterator();
+   while(itr.hasNext()) {
+   System.out.println(itr.next());
+   }
 
-    There are 3 methods in Iterator interface:
+   There are 3 methods in Iterator interface:
 
-    1. public boolean hasNext()
-    2. public Object next()
-    3. public void remove()
-
+   1. public boolean hasNext()
+   2. public Object next()
+   3. public void remove()
 2. Collection Interface
 
 List Interface
 
-List<data-type> list = new ArrayList<data-type>();
-List<data-type> list = new LinkedList<data-type>();
-List<data-type> list = new Vector<data-type>();
-List<data-type> list = new Stack<data-type>();
+List`<data-type>` list = new ArrayList`<data-type>`();
+
+
+List `<data-type>` list = new LinkedList `<data-type>`();
+List `<data-type>` list = new Vector `<data-type>`();
+List `<data-type>` list = new Stack `<data-type>`();
 
 Set Interface
 
-Set<data-type> set = new HashSet<data-type>();
-Set<data-type> set = new LinkedHashSet<data-type>();
-Set<data-type> set = new TreeSet<data-type>();
+Set`<data-type>` set = new HashSet`<data-type>`();
+
+
+Set `<data-type>` set = new LinkedHashSet `<data-type>`();
+
+
+Set `<data-type>` set = new TreeSet `<data-type>`();
 
 Map Interface
 
@@ -75,6 +80,5 @@ Map<data-type, data-type> map = new TreeMap<data-type, data-type>();
 
 Queue Interface
 
-Queue<data-type> queue = new PriorityQueue<data-type>();
-Queue<data-type> queue = new ArrayDeque<data-type>();
-
+Queue`<data-type>` queue = new PriorityQueue`<data-type>`();
+Queue`<data-type>` queue = new ArrayDeque`<data-type>`();
