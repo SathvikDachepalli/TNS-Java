@@ -36,15 +36,16 @@ Things provided in Collection Framework:
    - It is a universal cursor.
 
    Example:
+
    1. Traditional way of iterating the elements in the collection.
-   for(int i=0; i<list.size(); i++) {
-   System.out.println(list.get(i));
-   }
+      for(int i=0; i<list.size(); i++) {
+      System.out.println(list.get(i));
+      }
    2. Using Iterator interface
-   Iterator itr = list.iterator();
-   while(itr.hasNext()) {
-   System.out.println(itr.next());
-   }
+      Iterator itr = list.iterator();
+      while(itr.hasNext()) {
+      System.out.println(itr.next());
+      }
 
    There are 3 methods in Iterator interface:
 
@@ -55,9 +56,7 @@ Things provided in Collection Framework:
 
 List Interface
 
-<<<<<<< HEAD
-List`<data-type>` list = new ArrayList`<data-type>`();
-
+List `<data-type>` list = new ArrayList `<data-type>`();
 
 List `<data-type>` list = new LinkedList `<data-type>`();
 List `<data-type>` list = new Vector `<data-type>`();
@@ -65,48 +64,60 @@ List `<data-type>` list = new Stack `<data-type>`();
 
 Set Interface
 
-Set`<data-type>` set = new HashSet`<data-type>`();
-
+Set `<data-type>` set = new HashSet `<data-type>`();
 
 Set `<data-type>` set = new LinkedHashSet `<data-type>`();
 
-
 Set `<data-type>` set = new TreeSet `<data-type>`();
-=======
-List<data-type> list = new ArrayList<data-type>();
-    
-List<data-type> list = new LinkedList<data-type>();
 
-List<data-type> list = new Vector<data-type>();
+List `<data-type>` list = new ArrayList `<data-type>`();
 
-List<data-type> list = new Stack<data-type>();
+List `<data-type>` list = new LinkedList `<data-type>`();
+
+List `<data-type>` list = new Vector `<data-type>`();
+
+List `<data-type>` list = new Stack `<data-type>`();
 
 Set Interface
 
-Set<data-type> set = new HashSet<data-type>();
-    
-Set<data-type> set = new LinkedHashSet<data-type>();
-    
-Set<data-type> set = new TreeSet<data-type>();
->>>>>>> 08f4e7d57299fe24b89f22ea290bf49dc7ef38ac
+Set `<data-type>` set = new HashSet `<data-type>`();
+
+Set `<data-type>` set = new LinkedHashSet `<data-type>`();
+
+Set `<data-type>` set = new TreeSet `<data-type>`();
 
 Map Interface
 
 Map<data-type, data-type> map = new HashMap<data-type, data-type>();
-    
+
 Map<data-type, data-type> map = new LinkedHashMap<data-type, data-type>();
-    
+
 Map<data-type, data-type> map = new TreeMap<data-type, data-type>();
-    
 
 Queue Interface
 
-<<<<<<< HEAD
-Queue`<data-type>` queue = new PriorityQueue`<data-type>`();
-Queue`<data-type>` queue = new ArrayDeque`<data-type>`();
-=======
-Queue<data-type> queue = new PriorityQueue<data-type>();
-    
-Queue<data-type> queue = new ArrayDeque<data-type>();
+Queue `<data-type>` queue = new PriorityQueue `<data-type>`();
+Queue `<data-type>` queue = new ArrayDeque `<data-type>`();
 
->>>>>>> 08f4e7d57299fe24b89f22ea290bf49dc7ef38ac
+Queue `<data-type>` queue = new PriorityQueue `<data-type>`();
+
+Queue `<data-type>` queue = new ArrayDeque `<data-type>`();
+
+Refer ListExample1.java and ListExample2.java for may23
+
+Sorting methods:
+
+Collections.sort is a inbuilt method to sort the given array or any set of elements i.e., Alphabets, Numerics etc.
+
+Collections.sort(list);
+
+Collections.sort(list, Collections.reverseOrder());
+
+ListIterator Interface
+
+ListIterator is a child interface of Iterator interface.
+
+ListIterator have a method to iterate forward and backward.
+
+ListIterator have a method to add an element in the middle of the list.
+
