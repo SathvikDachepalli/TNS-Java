@@ -1,0 +1,27 @@
+Java Dequeue Interface double ended queue
+
+Declaration:
+
+Deque deque = new ArrayDeque<>();
+
+public interface Deque<E> extends Queue<E>
+
+Deque Interface Methods:
+
+1. boolean add(E e): Inserts the specified element into the queue represented by this deque (in other words, at the tail of this deque) if it is possible to do so immediately without violating capacity restrictions, returning true upon success and throwing an IllegalStateException if no space is currently available.
+2. void addFirst(E e): Inserts the specified element at the front of this deque if it is possible to do so immediately without violating capacity restrictions, throwing an IllegalStateException if no space is currently available.
+3. void addLast(E e): Inserts the specified element at the end of this deque if it is possible to do so immediately without violating capacity restrictions, throwing an IllegalStateException if no space is currently available.
+4. object remove(): Retrieves and removes the head of the queue represented by this deque (in other words, the first element of this deque).
+5. object removeFirst(): Retrieves and removes the first element of this deque.
+6. object removeLast(): Retrieves and removes the last element of this deque.
+7. object poll(): Retrieves and removes the head of the queue represented by this deque (in other words, the first element of this deque), or returns null if this deque is empty.
+8. object element(): Retrieves, but does not remove, the head of the queue represented by this deque (in other words, the first element of this deque).
+9. object peek(): Retrieves, but does not remove, the head of the queue represented by this deque (in other words, the first element of this deque), or returns null if this deque is empty.
+
+ArrayDeque class
+
+ArrayDeque class implements the Deque interface. It facilitates us to use the Deque. Unlike queue, we can add or delete the elements from both the ends.
+
+ArrayDeque class declaration
+
+public class ArrayDeque<E> extends AbstractCollection<E> implements Deque<E>, Cloneable, Serializable

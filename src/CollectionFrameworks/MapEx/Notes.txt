@@ -1,0 +1,56 @@
+Map Interface:
+A key value pair, where the key is the name of the field and the value is the value of the field.
+The key is a string, but the value can be any of the following types:
+- string
+- number
+- boolean
+- null
+- array
+- object
+- function
+- undefined
+
+The value can also be a nested Map.
+Hierachy of Map interface:
+
+         Map
+      /      :   
+SortedMap    HashMap
+    :           |
+TreeMap      LinkedHashMap
+
+Map is an interface, so we cannot instantiate it directly. We need to use one of the classes that implement it.
+HashMap is the most commonly used implementation of the Map interface.
+HashMap is not sorted, so the order of the elements is not guaranteed to be the same as the order in which they were added.
+LinkedHashMap is a subclass of HashMap. It maintains a doubly-linked list of the elements in the map.
+The order of the elements is the same as the order in which they were added.
+TreeMap is a subclass of SortedMap. It maintains the elements in sorted order.
+The order is determined by the keys. The keys must be of a type that implements the Comparable interface.
+If the keys are of a type that does not implement the Comparable interface, then a Comparator must be provided.
+
+Map<String, String> map = new HashMap<>();
+Map<String, String> map = new LinkedHashMap<>();
+Map<String, String> map = new TreeMap<>();
+Map<String, String> map = new SortedMap<>();
+
+Methods:
+
+- put(key, value) - adds a new key-value pair to the map. If the key already exists, then the old value is replaced with the new value.
+- get(key) - returns the value associated with the key. If the key does not exist, then null is returned.
+- remove(key) - removes the key-value pair from the map. If the key does not exist, then nothing happens.
+- containsKey(key) - returns true if the key exists in the map, otherwise false.
+- containsValue(value) - returns true if the value exists in the map, otherwise false.
+- size() - returns the number of key-value pairs in the map.
+- clear() - removes all the key-value pairs from the map.
+- isEmpty() - returns true if the map is empty, otherwise false.
+- keySet() - returns a Set of all the keys in the map.
+
+Map.Entry Interface:
+The Map.Entry interface represents a key-value pair in a map.
+The Map interface has a method called entrySet() that returns a Set of Map.Entry objects.
+Each Map.Entry object represents a key-value pair in the map.
+The Map.Entry interface has the following methods:
+
+- getKey() - returns the key.
+- getValue() - returns the value.
+- setValue(value) - sets the value.

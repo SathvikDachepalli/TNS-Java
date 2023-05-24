@@ -1,0 +1,20 @@
+HashMap
+Child class of AbstractMap which Implements Map interface
+It is a HashTable based implementation
+It permits null values and null keys
+It is not synchronized
+It doesnot have any order
+It is not thread safe
+Duplicate elements are not allowed in HashMap (only one null key is allowed).
+If we tried to insert duplicate key then old value will be replaced by new value.
+
+LinkedHashMap
+Child class of HashMap
+It is a HashTable and LinkedList based implementation
+It permits null values and null keys
+It is not synchronized
+It maintains insertion order
+It is not thread safe
+Duplicate elements are not allowed in LinkedHashMap (only one null key is allowed).
+If we tried to insert duplicate key then old value will be replaced by new value.
+
