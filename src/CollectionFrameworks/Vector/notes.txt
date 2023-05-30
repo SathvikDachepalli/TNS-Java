@@ -1,0 +1,14 @@
+Vector(int initialCapacity, int capacityIncrement) : Vector(initialCapacity) {
+    this->capacityIncrement = capacityIncrement;
+}
+
+in Java, Vector is a synchronized class, but in C++, it is not. So, if you want to use it in a multi-threaded environment, you need to use it with a mutex.
+
+Methods of vector:
+add()
+addAll()
+addElement()
+capacity()
+clear()
+clone()
+

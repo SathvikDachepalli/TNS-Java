@@ -1,0 +1,15 @@
+Strings in java:
+
+Strings are immutable in java. Once we create a string object we can’t modify it. If we try to modify we will get new object. This is called immutability of strings.
+
+Two ways to create string objects:
+1. By using string literal
+    - String s = “Sathvik”;
+2. By using new operator
+    - String s = new String(“Sathvik”);
+
+How does string get stored:
+
+  java
+    |
+    
