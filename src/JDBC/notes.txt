@@ -1,0 +1,39 @@
+JDBC- Java data base connectivity
+
+1. JDBC-ODBC Bridge
+2. Native API Driver
+3. Network Protocol Driver
+4. Thin Driver
+
+java.sql package contains all the classes and interfaces required for JDBC programming.
+
+Most notable classes and interfaces are as follows:
+
+Interfaces supported by JDBC API:
+- JDBC API interface
+- Driver interface
+- Connection interface
+- Statement interface
+- ResultSet interface
+- PreparedStatement interface
+- CallableStatement interface
+- DatabaseMetaData interface
+- ResultSetMetaData interface
+- RowSet interface
+
+
+Classes supported by JDBC API:
+
+ - DriverManager class
+ - Blob class
+ - Clob class
+ - Types class
+
+JDBC is written in Java language and hence it is platform independent.
+ODBC is written in C language and hence it is platform dependent.
+
+With JDBC we can perform various activities like:
+- Establishing connection with the database
+- Executing queries
+- Retrieving results
+- Updating records etc.

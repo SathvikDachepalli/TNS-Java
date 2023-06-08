@@ -23,7 +23,7 @@ public class JoinDemo extends Thread{
         }
 
         t3.start();
-        t3.join(); // Only after completing t2, control would go to t1,t3
+        t3.join(); // Only after completing t3, control would go to t1,t2
         t1.start();
         t2.start();
 

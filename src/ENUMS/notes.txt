@@ -1,0 +1,11 @@
+Enums in java:
+
+Enum is a special class which have final constants.
+-special class means it is a class which extends java.lang.Enum class.
+-Enum class is an abstract class which implements Serializable and Comparable interfaces.
+-Enum class is present in java.lang package.
+
+
+enum Color{
+    RED,GREEN,BLUE;
+}

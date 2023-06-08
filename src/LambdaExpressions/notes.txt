@@ -1,0 +1,53 @@
+Lambda Expression in java
+
+Funcitonal Interface-1 abstract method.
+
+Lambda Expression is used to implement the abstract method of Functional Interface.
+Syntax:
+(Argument List) -> {Body}
+
+Example:
+
+interface A
+{
+void show();
+}
+class B implements A
+{
+public void show()
+{
+System.out.println("Hello");
+}
+}
+class LambdaDemo
+{
+public static void main(String[] args)
+{
+A obj = new B();
+obj.show();
+}
+}
+
+No parameter syntax:
+() -> {Body}
+
+One parameter syntax:
+(Argument) -> {Body}
+
+Two parameter syntax:
+(Argument1, Argument2) -> {Body}
+
+Example:
+
+interface A
+{
+void show();
+}
+class LambdaDemo
+{
+public static void main(String[] args)
+{
+A obj = () -> {System.out.println("Hello");};
+obj.show();
+}
+}
