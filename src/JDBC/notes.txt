@@ -1,10 +1,11 @@
 JDBC- Java data base connectivity
 
-1. JDBC-ODBC Bridge
-2. Native API Driver
-3. Network Protocol Driver
-4. Thin Driver
-
+1. JDBC-ODBC Bridge         - Type 1 Driver         - Not recommended after java 8 versions             - Easy to use, Can installed in Client side          - Slow performance coz JDBC call is converted to ODBC call and then to DB call
+2. Native API Driver        - Partial Java Driver   - Converts JDBC call to DB call                     - Fast performance                                   - Not recommended coz it is platform dependent, required to install in client side 
+3. Network Protocol Driver  - Pure Java Driver      - Uses Hiddenware protocol to communicate with DB   - Fully written in java                              - Network traffic is more, so performance is slow
+4. Thin Driver              - Pure Java Driver      - Fully written in java                             - Network traffic is less, so performance is fast    - Requires Database
+                                                      Converts JDBC call to vender specific protocol      Better performance than Network Protocol Driver
+                                                      
 java.sql package contains all the classes and interfaces required for JDBC programming.
 
 Most notable classes and interfaces are as follows:
@@ -37,3 +38,353 @@ With JDBC we can perform various activities like:
 - Executing queries
 - Retrieving results
 - Updating records etc.
+
+
+
+
+
+How to do Java Database connectivity?
+1. Register the driver class
+2. Create connection
+3. Create statement
+4. Execute queries
+5. Close connection
+
+
+1. Register the driver class
+- forName() method of Class class is used to register the driver class
+- forName() method is static method
+- forName() method throws ClassNotFoundException
+- forName() method is used to load the driver class
+
+
+Syntax:
+public static void forName(String className) throws ClassNotFoundException{
+    //code
+}
+Class.forName("com.mysql.jdbc.Driver");
+
+2. Create connection object:
+- getConnection() method of DriverManager class is used to create connection object
+- getConnection() method is static method
+- getConnection() method throws SQLException
+- getConnection() method is used to establish connection with the database
+
+Syntax:
+1. public static Connection getConnection(String url, String username, String password) throws SQLException{
+    //code
+}
+2. public static Connection getConnection(String url) throws SQLException{
+    //code
+}
+3. public static Connection getConnection(String url, Properties info) throws SQLException{
+    //code
+}
+
+Example: Connection con = DriverManager.getConnection("jdbc:mysql:thin:@localhost:3306/sonoo","root","root");
+
+3. Create statement object:
+- createStatement() method of Connection interface is used to create statement object
+- To execute queries we need to create statement object
+- Doesnt call Database engine
+
+Syntax:
+public Statement createStatement() throws SQLException{
+    //code
+}
+
+Example: Statement stmt = con.createStatement();
+
+4. Execute queries:
+- executeQuery() method of Statement interface is used to execute queries
+- executeQuery() method returns ResultSet object
+- Calls Database engine to execute SQL query
+- executeQuery() method throws SQLException
+
+Syntax:
+public ResultSet executeQuery(String sql) throws SQLException{
+    //code
+}
+
+Example: ResultSet rs = stmt.executeQuery("select * from emp");
+while (rs.next()){
+    System.out.println(rs.getInt()+" "+rs.getString());
+}
+
+5. Close connection:
+- close() method of Connection interface is used to close connection
+- close() method throws SQLException
+- close() method is used to close connection with the database
+- Doesnt call Database engine
+
+Syntax:
+public void close() throws SQLException{
+    //code
+}
+
+Example: con.close();
+
+
+JDBC with MySQL:
+
+1. Register the driver class:
+    Class.forName("com.mysql.jdbc.Driver");
+
+2. Create connection object:
+    Connection con = DriverManager.getConnection(
+        "jdbc:mysql://localhost:<< Port aka 3306 >>/ << Database-name >> ","<< Username >>","<< Password >>"
+    );
+
+3. Create statement object:
+    Statement stmt = con.createStatement();
+
+4. Execute queries:
+    
+    // Create Database if not exists
+    stmt.executeQuery("create database if not exists test");
+    
+    // If database already exists then use it
+    stmt.executeQuery("use test");
+
+    // Create table if not exists with id as primary key
+    stmt.executeQuery("create table if not exists emp(id int primary key, EMP_Name varchar(20), EMP_Salary int)");
+    
+    // Write data to database
+
+    stmt.execute("insert into emp values(101,'Amit')");
+    stmt.execute("insert into emp values(102,'Ravi')");
+    stmt.execute("insert into emp values(103,'Vijay')");
+
+    // Read data from database
+    ResultSet rs = stmt.executeQuery("select * from emp");
+    while (rs.next()){
+        System.out.println(rs.getInt()+" "+rs.getString());
+    }
+
+    
+5. Close connection:
+    con.close();
+
+
+DriverManager class:
+- DriverManager class is a part of java.sql package
+- DriverManager class is used to register the driver class
+- DriverManager class is used to create connection object
+- DriverManager class is used to get connection object
+- DriverManager class is used to close connection object
+
+DriverManager.registerDriver(Driver d)
+
+Method:
+public static synchronized void registerDriver(Driver d) throws SQLException{
+    //code
+}
+public static synchronized void deregisterDriver(Driver d) throws SQLException{
+    //code
+}
+
+Connection interface:
+- Connection interface is a part of java.sql package
+- Connection interface is used to create statement object
+- Requires to import java.sql.Connection package and DriverManager class
+
+Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/<<! Database !>>","<< Username >>","<< Password >>");
+
+Methods:
+1. public Statement createStatement() throws SQLException{
+    //code
+}
+2. public Statement CreateStatement(int resultSetType, int resultSetConcurrency) throws SQLException{
+    //code
+}
+3. public void setAutoCommit(boolean autoCommit) throws SQLException{   -- setAutoCommit() method is used to enable or disable auto commit. 
+    //code
+}
+4. public void commit() throws SQLException{    -- commit() method is used to save changes in database
+    //code
+}
+5. public void rollback() throws SQLException{   -- rollback() method is used to undo changes in database, if any error occurs in between the transaction then rollback() method is used to undo the changes in database.
+    //code
+}
+6. public void close() throws SQLException{
+    //code
+}
+7. public boolean isClosed() throws SQLException{
+    //code
+}
+8. public DatabaseMetaData getMetaData() throws SQLException{
+    //code
+}
+
+Statement interface:
+- Statement interface is a part of java.sql package
+- Statement interface is used to execute queries
+- Requires to import java.sql.Statement package
+
+Types of execute statements:
+1. executeQuery() - to execute select queries
+2. executeUpdate() - to execute insert, update, delete queries
+3. execute() - to execute any type of query
+
+
+Methods:
+1. public ResultSet executeQuery(String sql) throws SQLException{
+    //code
+}
+2. public int executeUpdate(String sql) throws SQLException{
+    //code
+}
+3. public boolean execute(String sql) throws SQLException{
+    //code
+}
+4. public void close() throws SQLException{
+    //code
+}
+
+ResultSet interface:
+- ResultSet interface is a part of java.sql package
+- ResultSet interface is used to retrieve data from database
+- Requires to import java.sql.ResultSet package
+
+Methods:
+1. public boolean next() throws SQLException{
+    //code
+}
+2. public int getInt(int columnIndex) throws SQLException{
+    //code
+}
+3. public int getInt(String columnName) throws SQLException{
+    //code
+}
+4. public String getString(int columnIndex) throws SQLException{
+    //code
+}
+5. public String getString(String columnName) throws SQLException{
+    //code
+}
+6. public void close() throws SQLException{
+    //code
+}
+
+PreparedStatement interface:
+- PreparedStatement interface is a part of java.sql package
+- PreparedStatement interface is used to execute precompiled queries
+- Requires to import java.sql.PreparedStatement package
+
+Methods:
+1. public void setInt(int parameterIndex, int value) throws SQLException{
+    //code
+}
+2. public void setString(int parameterIndex, String value) throws SQLException{
+    //code
+}
+3. public int executeUpdate() throws SQLException{
+    //code
+}
+4. public ResultSet executeQuery() throws SQLException{
+    //code
+}
+
+ResultSetMetaData interface:
+- ResultSetMetaData interface is a part of java.sql package
+- ResultSetMetaData interface is used to retrieve metadata of ResultSet object
+- Requires to import java.sql.ResultSetMetaData package
+
+Methods:
+1. public int getColumnCount() throws SQLException{
+    //code
+}
+2. public String getColumnName(int column) throws SQLException{
+    //code
+}
+3. public String getColumnTypeName(int column) throws SQLException{
+    //code
+}
+4. public String getTableName(int column) throws SQLException{
+    //code
+}
+
+DatabaseMetaData interface:
+- DatabaseMetaData interface is a part of java.sql package
+- DatabaseMetaData interface is used to retrieve metadata of database
+- Requires to import java.sql.DatabaseMetaData package
+
+Methods:
+1. public String getDriverName() throws SQLException{
+    //code
+}
+2. public String getDriverVersion() throws SQLException{
+    //code
+}
+3. public String getUserName() throws SQLException{
+    //code
+}
+4. public String getDatabaseProductName() throws SQLException{
+    //code
+}
+
+CallableStatement interface:
+- CallableStatement interface is a part of java.sql package
+- CallableStatement interface is used to execute stored procedures
+- Requires to import java.sql.CallableStatement package
+
+Methods:
+1. public void registerOutParameter(int parameterIndex, int sqlType) throws SQLException{
+    //code
+}
+2. public void setInt(int parameterIndex, int value) throws SQLException{
+    //code
+}
+3. public void setString(int parameterIndex, String value) throws SQLException{
+    //code
+}
+4. public int getInt(int parameterIndex) throws SQLException{
+    //code
+}
+5. public String getString(int parameterIndex) throws SQLException{
+    //code
+}
+
+
+JDBC with Oracle:
+
+1. Register the driver class:
+    Class.forName("oracle.jdbc.driver.OracleDriver");
+
+2. Create connection object:
+    Connection con = DriverManager.getConnection(
+        "jdbc:oracle:thin:@localhost:<< Port aka 1521 >>:<< SID >>","<< Username >>","<< Password >>"
+    );
+
+3. Create statement object:
+    Statement stmt = con.createStatement();
+
+4. Execute queries:
+
+5. Close connection:
+    con.close();
+
+CRUD Operations:
+Create - insert
+Read - select
+Update - update
+Delete - delete
+
+1. Create table if not exists:
+    stmt.executeQuery("create table if not exists emp(id int primary key, EMP_Name varchar(20), EMP_Salary int)");
+
+2. Write data:
+    stmt.execute("insert into emp values(101,'Amit')");
+    stmt.execute("insert into emp values(102,'Ravi')");
+    stmt.execute("insert into emp values(103,'Vijay')");
+
+3. Read data:
+    ResultSet rs = stmt.executeQuery("select * from emp");
+    while (rs.next()){
+        System.out.println(rs.getInt()+" "+rs.getString());
+    }
+
+4. Update data:
+    stmt.execute("update emp set EMP_Name='Rahul' where id=101");
+5. Delete data:
+    stmt.execute("delete from emp where id=101");

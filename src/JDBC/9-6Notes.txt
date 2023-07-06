@@ -1,0 +1,151 @@
+1. Download microsoft workbench and create a username and password as root and root for easy purposes.
+2. Open Eclipse and create a new project as JDBC and create a package called "CRUD" for crud operations.
+3. Right click on the project and select properties and select java build path and select libraries and add external jars and add mysql-connector-java-5.1.40-bin.jar.
+4. Add your own library to the project like mysql-connector-java-5.1.40-bin.jar from the mysql website.
+5. You can see a JRE system library in the project explorer and referenced libraries in the project, you woud see referenced libraries with mysql-connector-java-5.1.40-bin.jar. 
+6. Create a class in CRUD package as DBUtil, and remove module.java from the package.
+
+-   to get the driverclass, go to com.mysql.jdbc.cj.jdbc.Driver and copy the class name and paste it in the DBUtil class.
+- To get the url, go to workbench and right click the database that you want and select copy JDBC URL ... and paste it in the DBUtil class.
+
+DBUtil.java
+
+package CRUD;
+
+import java.sql.Connection;
+import java.sql.*;
+
+public class DBUtil{
+    private static Connection cn;
+    private static final String DB_DRIVER="com.mysql.cj.jdbc.Driver";
+    private static final String DB_USERNAME="root";
+    private static final String DB_PASSWORD="root";
+    private static final String DB_NAME="Test1";
+    private static final String DB_URL="jdbc:mysql://localhost:3306/"+DB_NAME;
+
+    public static Connection getConnection() throws SQLException, ClassNotFoundException{
+        Class.forName(DB_DRIVER);
+        System.out.println("Driver Loaded");
+        cn=DriverManager.getConnection(DB_URL,DB_USERNAME,DB_PASSWORD);
+        return cn;
+    }
+}
+
+7. Create a class in CRUD package as StatementInterfaceDemo and remove module.java from the package.
+
+StatementInterfaceDemo.java
+
+package CRUD;
+
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.*;
+
+public class StatementInterfaceDemo{
+    static Connection cn;
+    static Statement st;
+    static{
+        cn=DBUtil.getConnection();
+        try{
+            st=cn.createStatement();
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public static int addEmployee(int id, String name, double Salary){
+        int count=0;
+        try{
+            String query="INSERT INTO employee VALUES("+id+",'"+name+"',"+Salary+")";
+            count=st.executeUpdate(query);
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            count=0;
+        }
+        return count;
+    }
+    public static int validateEmp(int id){
+        int count=0;
+        try{
+            String query="SELECT count(*) FROM employee WHERE id="+id;
+            ResultSet rs=st.executeQuery(query);
+            rs.next();
+            count=rs.getInt(1);
+
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            count=0;
+        }
+        return count;
+    }
+    public static boolean deleteEmployee(int id){
+        boolean status=false;
+        try{
+            int n=validateEmp(id);
+            if(n==1){
+                String query="DELETE FROM employee WHERE id="+id;
+                st.executeUpdate(query);
+                
+                status=true;
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            status=false;
+        }
+        return status;
+    }
+    public static boolean updateEmpSalary(int id, double salary){
+        boolean status=false;
+        try{
+            int n=validateEmp(id);
+            if(n==1){
+                String query="UPDATE employee SET salary="+salary+" WHERE id="+id;
+                st.executeUpdate(query);
+                status=true;
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            status=false;
+        }
+        return status;
+    }
+    public static void showEmp(){
+        try{
+            String query="SELECT * FROM employee";
+            ResultSet rs=st.executeQuery(query);
+            while(rs.next()){
+                System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getDouble(3));
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+}
+
+
+8. Create a class in CRUD package as Executor and remove module.java from the package.
+
+Executor.java
+
+package CRUD;
+import java.sql.*;
+import CRUD.StatementInterfaceDemo;
+public class Executor{
+    public static void main(String[] args){
+        StatementInterfaceDemo.showEmp();
+        System.out.println("Adding Employee");
+        StatementInterfaceDemo.addEmployee(13,"Raj",10000);
+        System.out.println(StatementInterfaceDemo.updateEmpSalary(5,20000));
+        
+        System.out.println("---After updateEmpSalary---");
+        StatementInterfaceDemo.showEmp();
+        System.out.println(StatementInterfaceDemo.deleteEmployee(2));
+        System.out.println("---After deleteEmployee---");
+        StatementInterfaceDemo.showEmp();
+    }
+}
